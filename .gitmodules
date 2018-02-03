@@ -1,0 +1,3 @@
+[submodule "openvpn-update-resolv-conf"]
+	path = openvpn-update-resolv-conf
+	url = git@github.com:masterkorp/openvpn-update-resolv-conf.git

@@ -9,11 +9,10 @@ set -o pipefail
 # for Linux.
 
 # openvpn config file directory
-# dir=/etc/openvpn/
-dir=$(pwd)
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 # load the firewall
-$dir/firewall.sh
+${DIR}/firewall.sh
 
 # load TUN/TAP kernel module
 modprobe tun
@@ -22,7 +21,7 @@ modprobe tun
 # echo 1 > /proc/sys/net/ipv4/ip_forward
 
 ## Create tun0 interface
-#dir/tun.up
+${DIR}/tun.down || true
+${DIR}/tun.up
 
-# openvpn --cd $dir --daemon --config /etc/openvpn/client/oahzjh-misc.conf
-openvpn --script-security 2 --down $dir/tun.down --cd $dir --config /etc/openvpn/client/oahzjh-misc.conf
+openvpn --daemon --script-security 2 --down ${DIR}/tun.down --cd ${DIR}/client --config ${DIR}/client/oahzjh-misc.conf
