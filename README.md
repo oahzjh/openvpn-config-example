@@ -32,7 +32,9 @@ $ ip addr add 10.0.0.1 peer 10.0.0.2/24 dev tun0
 - https://wiki.archlinux.org/index.php/OpenVPN#DNS
 - https://github.com/masterkorp/openvpn-update-resolv-conf
 
+## Auto assign IP address to client device
+- ifconfig-pool
+
 # TODO:
 ## Create script to generate ovpn profile file
 
-## Auto assign IP address to client device
